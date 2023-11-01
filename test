@@ -1,0 +1,17 @@
+import subprocess
+
+def deploy_application(application_path, target_path):
+  """Deploys the given application to the target path.
+
+  Args:
+    application_path: The path to the application to deploy.
+    target_path: The path to deploy the application to.
+  """
+
+  subprocess.run(["msiexec", "/i", application_path, "/quiet", "/target", target_path])
+
+def main():
+  deploy_application("C:\path\to\application.msi", "C:\Program Files\Application")
+
+if __name__ == "__main__":
+  main()
